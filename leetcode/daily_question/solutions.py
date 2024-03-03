@@ -1,4 +1,4 @@
-def maximumOddBinaryNumber(self, s: str) -> str:
+def maximumOddBinaryNumber(s: str) -> str:
     sorted_string = ''.join(sorted(s, key = str.lower, reverse = True))
     one = '1'
     to_change = sorted_string.rfind(one)
