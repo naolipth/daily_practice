@@ -1,3 +1,6 @@
+from typing import List
+
+
 def maximumOddBinaryNumber(s: str) -> str:
     sorted_string = ''.join(sorted(s, key = str.lower, reverse = True))
     one = '1'
@@ -6,4 +9,9 @@ def maximumOddBinaryNumber(s: str) -> str:
     char_list = list(sorted_string)
     char_list[length], char_list[to_change] = char_list[to_change], char_list[length]
     result = "".join(char_list)
+    return result
+
+
+def sortedSquares(nums: List[int]) -> List[int]:
+    result = sorted([x**2 for x in nums])
     return result
