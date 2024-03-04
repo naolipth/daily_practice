@@ -15,3 +15,27 @@ def maximumOddBinaryNumber(s: str) -> str:
 def sortedSquares(nums: List[int]) -> List[int]:
     result = sorted([x**2 for x in nums])
     return result
+
+
+def bagOfTokensScore(tokens: List[int], power: int) -> int:
+        tokens.sort() 
+        current_score = 0                  
+        maximum_score = 0               
+        left_end, right_end = 0, len(tokens) - 1 
+        stay_in_loop = True
+        
+        # Iterate through the tokens using a two-pointer approach
+        while left_end <= right_end and stay_in_loop:
+            if power >= tokens[left_end]:   
+                power -= tokens[left_end]
+                current_score += 1
+                left_end += 1
+                maximum_score = max(maximum_score, current_score)
+            elif current_score > 0:             
+                power += tokens[right_end]  
+                current_score -= 1 
+                right_end -= 1               
+            else:
+                stay_in_loop = False
+
+        return maximum_score
