@@ -39,3 +39,15 @@ def bagOfTokensScore(tokens: List[int], power: int) -> int:
                 stay_in_loop = False
 
         return maximum_score
+
+def minimumLength(s: str) -> int:
+    left, right = 0, len(s) - 1
+    
+    while left < right and s[left] == s[right]:
+        char = s[left]
+        while left <= right and s[left] == char:
+            left += 1
+        while right >= left and s[right] == char:
+            right -= 1
+    
+    return right - left + 1
